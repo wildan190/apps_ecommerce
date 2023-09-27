@@ -14,12 +14,12 @@
                     @csrf
                     <div class="mb-4">
                         <label for="kode_produk" class="block text-gray-600 dark:text-gray-300">{{ __('Product Code') }}</label>
-                        <input type="text" name="kode_produk" id="kode_produk" class="form-input mt-1 block w-full" required>
+                        <input type="text" name="kode_produk" id="kode_produk" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Product Code" required>
                     </div>
 
                     <div class="mb-4">
                         <label for="kategori_produk_id" class="block text-gray-600 dark:text-gray-300">{{ __('Category') }}</label>
-                        <select name="kategori_produk_id" id="kategori_produk_id" class="form-select mt-1 block w-full" required>
+                        <select name="kategori_produk_id" id="kategori_produk_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                             @foreach($categories as $category)
                             <option value="{{ $category->id }}">{{ $category->nama_kategori }}</option>
                             @endforeach
@@ -28,22 +28,22 @@
 
                     <div class="mb-4">
                         <label for="nama_produk" class="block text-gray-600 dark:text-gray-300">{{ __('Product Name') }}</label>
-                        <input type="text" name="nama_produk" id="nama_produk" class="form-input mt-1 block w-full" required>
+                        <input type="text" name="nama_produk" id="nama_produk" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Product Name" required>
                     </div>
 
                     <div class="mb-4">
                         <label for="harga_produk" class="block text-gray-600 dark:text-gray-300">{{ __('Price') }}</label>
-                        <input type="number" name="harga_produk" id="harga_produk" class="form-input mt-1 block w-full" required>
+                        <input type="number" name="harga_produk" id="harga_produk" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                     </div>
 
                     <div class="mb-4">
                         <label for="deskripsi_produk" class="block text-gray-600 dark:text-gray-300">{{ __('Description') }}</label>
-                        <textarea name="deskripsi_produk" id="deskripsi_produk" class="form-textarea mt-1 block w-full" rows="4" required></textarea>
+                        <textarea name="deskripsi_produk" id="deskripsi_produk" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" rows="4" placeholder="Description" required></textarea>
                     </div>
 
                     <div class="mb-4">
                         <label for="foto_produk" class="block text-gray-600 dark:text-gray-300">{{ __('Product Image') }}</label>
-                        <input type="file" name="foto_produk" id="foto_produk" class="form-input mt-1 block w-full">
+                        <input type="file" name="foto_produk" id="foto_produk" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     </div>
 
                     <div class="mt-4">
