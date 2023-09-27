@@ -15,27 +15,19 @@
                     {{ __('Add Product') }}
                 </a>
 
-                <!-- Tabel Daftar Produk -->
-                <table class="table-auto w-full mt-4">
-                    <thead>
-                        <tr>
-                            <th class="px-4 py-2">{{ __('ID') }}</th>
-                            <th class="px-4 py-2">{{ __('Product Code') }}</th>
-                            <th class="px-4 py-2">{{ __('Category') }}</th>
-                            <th class="px-4 py-2">{{ __('Product Name') }}</th>
-                            <th class="px-4 py-2">{{ __('Price') }}</th>
-                            <th class="px-4 py-2">{{ __('Actions') }}</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($products as $product)
-                            <tr>
-                                <td class="border px-4 py-2">{{ $product->id }}</td>
-                                <td class="border px-4 py-2">{{ $product->kode_produk }}</td>
-                                <td class="border px-4 py-2">{{ $product->category->nama_kategori }}</td>
-                                <td class="border px-4 py-2">{{ $product->nama_produk }}</td>
-                                <td class="border px-4 py-2">{{ $product->harga_produk }}</td>
-                                <td class="border px-4 py-2">
+                <!-- Grid Produk -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+                    @foreach ($products as $product)
+                        <div class="bg-white dark:bg-gray-200 overflow-hidden shadow-sm sm:rounded-lg">
+                            @if ($product->foto_produk)
+                                <img src="{{ asset('storage/' . $product->foto_produk) }}" alt="{{ $product->nama_produk }}" class="w-full h-32 object-cover">
+                            @endif
+                            <div class="p-6">
+                                <h4 class="font-semibold text-lg">{{ $product->nama_produk }}</h4>
+                                <p class="text-gray-600 dark:text-gray-400">{{ $product->harga_produk }}</p>
+                                <div class="mt-4">
+                                    <a href="{{ route('products.show', $product->id) }}" class="text-blue-500 hover:text-blue-700">{{ __('View Details') }}</a>
+                                    |
                                     <a href="{{ route('products.edit', $product->id) }}" class="text-blue-500 hover:text-blue-700">{{ __('Edit') }}</a>
                                     |
                                     <form action="{{ route('products.destroy', $product->id) }}" method="POST" class="inline">
@@ -43,11 +35,11 @@
                                         @method('DELETE')
                                         <button type="submit" class="text-red-500 hover:text-red-700">{{ __('Delete') }}</button>
                                     </form>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>

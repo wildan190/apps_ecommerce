@@ -23,7 +23,7 @@
                 <!-- Tabel Daftar Kategori -->
                 <table class="table-auto w-full mt-4">
                     <thead>
-                        <tr>
+                        <tr class="bg-blue-200 dark:bg-gray-700">
                             <th class="px-4 py-2">{{ __('ID') }}</th>
                             <th class="px-4 py-2">{{ __('Category Name') }}</th>
                             <th class="px-4 py-2">{{ __('Actions') }}</th>
@@ -31,7 +31,7 @@
                     </thead>
                     <tbody>
                         @foreach ($categories as $category)
-                            <tr>
+                            <tr class="bg-white dark:bg-gray-200">
                                 <td class="border px-4 py-2">{{ $category->id }}</td>
                                 <td class="border px-4 py-2">{{ $category->nama_kategori }}</td>
                                 <td class="border px-4 py-2">
@@ -51,3 +51,4 @@
         </div>
     </div>
 </x-app-layout>
+
