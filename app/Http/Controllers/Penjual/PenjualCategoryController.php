@@ -1,21 +1,22 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Penjual;
 
+use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class PenjualCategoryController extends Controller
 {
     public function index()
     {
         $categories = Category::all();
-        return view('categories.index', compact('categories'));
+        return view('penjual.categories.index', compact('categories'));
     }
 
     public function create()
     {
-        return view('categories.create');
+        return view('penjual.categories.create');
     }
 
     public function store(Request $request)
@@ -27,7 +28,6 @@ class CategoryController extends Controller
         Category::create($validatedData);
 
         return redirect()->route('categories.index')->with('success', 'Kategori berhasil ditambahkan.');
-
     }
 
     public function show(Category $category)
@@ -49,7 +49,6 @@ class CategoryController extends Controller
         $category->update($validatedData);
 
         return redirect()->route('categories.index')->with('success', 'Kategori berhasil diperbarui.');
-
     }
 
     public function destroy(Category $category)
