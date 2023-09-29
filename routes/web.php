@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\AdminUserManagementController;
-//use App\Http\Controllers\Pembeli\PembeliProductController;
+use App\Http\Controllers\Pembeli\PembeliController;
 //use App\Http\Controllers\Pembeli\PembeliCategoryController;
 use App\Http\Controllers\Penjual\PenjualCategoryController;
 use App\Http\Controllers\Penjual\PenjualProductController;
@@ -32,10 +32,23 @@ Route::middleware(['auth:sanctum', 'verified', 'role:Admin', 'admin.access'])->p
 });
 
 // Rute-rute untuk Category dan Product Pembeli
-//Route::middleware(['auth:sanctum', 'verified', 'role:Pembeli'])->prefix('pembeli')->group(function () {
-//    Route::resource('products', PembeliProductController::class)->except(['create', 'store', 'edit', 'update', 'destroy']);
-//    Route::resource('categories', PembeliCategoryController::class)->except(['create', 'store', 'edit', 'update', 'destroy']);
-//});
+Route::middleware(['auth:sanctum', 'verified', 'role:Pembeli'])->prefix('pembeli')->group(function () {
+    Route::get('/', [PembeliController::class, 'index'])->name('pembeli.index');
+    Route::get('/cart', [PembeliController::class, 'viewCart'])->name('pembeli.viewCart');
+    Route::get('/addToCart/{product}', [PembeliController::class, 'addToCart'])->name('pembeli.addToCart');
+    
+    // Tambahkan rute untuk menghapus item dari keranjang belanja
+    Route::get('/removeFromCart/{product}', [PembeliController::class, 'removeFromCart'])->name('pembeli.removeFromCart');
+    
+    // Tambahkan rute untuk proses checkout
+    Route::get('/checkout', [PembeliController::class, 'checkout'])->name('pembeli.checkout');
+    // Tampilan halaman checkout
+    Route::get('/checkout', [PembeliController::class, 'checkout'])->name('pembeli.checkout');
+    
+    // Rute untuk memproses pesanan
+    Route::post('/processOrder', [PembeliController::class, 'processOrder'])->name('pembeli.processOrder');
+});
+
 
 // Rute untuk Category dan Product Penjual
 Route::middleware(['auth:sanctum', 'verified', 'role:Penjual'])->prefix('penjual')->group(function () {
