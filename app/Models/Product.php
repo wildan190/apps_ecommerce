@@ -24,4 +24,10 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class, 'kategori_produk_id');
     }
+
+    // Product.php
+    public function orders()
+    {
+        return $this->belongsTo(Order::class);
+    }
 }
