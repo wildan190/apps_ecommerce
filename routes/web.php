@@ -39,6 +39,7 @@ Route::middleware(['auth:sanctum', 'verified', 'role:Pembeli'])->prefix('pembeli
     Route::get('/cart', [PembeliController::class, 'viewCart'])->name('pembeli.viewCart');
     Route::get('/addToCart/{product}', [PembeliController::class, 'addToCart'])->name('pembeli.addToCart');
     Route::get('my-orders', [PembeliOrderController::class, 'index'])->name('pembeli.orders.index');
+    Route::get('/pembeli/orders/{id}', [PembeliOrderController::class, 'show'])->name('pembeli.orders.show'); // Halaman "View Pesanan"
     
     // Tambahkan rute untuk menghapus item dari keranjang belanja
     Route::get('/removeFromCart/{product}', [PembeliController::class, 'removeFromCart'])->name('pembeli.removeFromCart');

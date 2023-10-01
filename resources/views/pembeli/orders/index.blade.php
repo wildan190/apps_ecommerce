@@ -1,5 +1,4 @@
 <!-- resources/views/pembeli/orders/index.blade.php -->
-
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
@@ -18,6 +17,7 @@
                             <th class="px-4 py-2">Nomor Pesanan</th>
                             <th class="px-4 py-2">Tanggal Pesanan</th>
                             <th class="px-4 py-2">Status Pesanan</th>
+                            <th class="px-4 py-2">Action</th>
                             <!-- Tambahkan kolom lainnya sesuai kebutuhan -->
                         </tr>
                     </thead>
@@ -27,6 +27,9 @@
                             <td class="px-4 py-2">{{ $order->id }}</td>
                             <td class="px-4 py-2">{{ $order->created_at->format('d/m/Y H:i') }}</td>
                             <td class="px-4 py-2">{{ $order->status }}</td>
+                            <td>
+                                <a href="{{ route('pembeli.orders.show', $order->id) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2">View</a>
+                            </td>
                             <!-- Tambahkan kolom lainnya sesuai kebutuhan -->
                         </tr>
                         @endforeach
