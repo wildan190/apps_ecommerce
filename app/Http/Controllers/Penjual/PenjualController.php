@@ -24,4 +24,11 @@ class PenjualController extends Controller
         // Setelah mengubah status, Anda dapat mengarahkan pengguna kembali ke halaman manajemen pesanan
         return redirect()->route('penjual.orders')->with('success', 'Pesanan telah dikonfirmasi.');
     }
+
+    public function show(Order $order)
+    {
+        // Lakukan logika untuk menampilkan detail pesanan di sini
+        
+        return view('penjual.orders.show', compact('order'));
+    }
 }

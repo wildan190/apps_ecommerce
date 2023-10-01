@@ -1,6 +1,6 @@
 @php
 $subtotal = 0;
-$taxRate = 0.1; 
+$taxRate = 0.1; // 10% pajak (Anda bisa menyesuaikan dengan tarif pajak yang sesuai)
 @endphp
 
 @foreach ($order->orderItems as $item)
@@ -28,7 +28,7 @@ $total = $subtotal + $tax;
                     <h2 class="text-2xl font-semibold text-blue-800 dark:text-blue-200">Detail Pesanan</h2>
                     <p class="text-gray-600 dark:text-gray-300">Nomor Pesanan: {{ $order->id }}</p>
                     <p class="text-gray-600 dark:text-gray-300">Tanggal Pesanan: {{ $order->created_at }}</p>
-                    <!-- Tampilkan informasi lainnya seperti total harga, status, dll -->
+                    <!-- Informasi lainnya seperti status, total harga, dll -->
                 </div>
 
                 <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 p-4 rounded-lg mb-4">
@@ -45,6 +45,16 @@ $total = $subtotal + $tax;
                         </div>
                     </div>
                     @endforeach
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 p-4 rounded-lg mb-4">
+                    <h3 class="text-xl font-semibold mb-4">Informasi Penerima</h3>
+                    <p class="text-gray-800 dark:text-gray-200">Nama Penerima: {{ $order->nama_penerima }}</p>
+                    <p class="text-gray-800 dark:text-gray-200">Nomor Telepon: {{ $order->nomor_telepon }}</p>
+                    <p class="text-gray-800 dark:text-gray-200">Alamat Lengkap: {{ $order->alamat_lengkap }}</p>
+                    <p class="text-gray-800 dark:text-gray-200">Kota: {{ $order->kota }}</p>
+                    <p class="text-gray-800 dark:text-gray-200">Provinsi: {{ $order->provinsi }}</p>
+                    <p class="text-gray-800 dark:text-gray-200">Kode Pos: {{ $order->kode_pos }}</p>
                 </div>
 
                 <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 p-4 rounded-lg mb-4">
@@ -86,7 +96,7 @@ $total = $subtotal + $tax;
                 </div>
 
                 <!-- Tombol Kembali -->
-                <a href="javascript:history.back()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-block mt-4">
+                <a href="{{ route('penjual.orders') }}" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-block mt-4">
                     Kembali
                 </a>
             </div>

@@ -61,6 +61,7 @@ Route::middleware(['auth:sanctum', 'verified', 'role:Penjual'])->prefix('penjual
 
     // Rute untuk menyimpan produk oleh Penjual
     Route::get('/penjual/orders', [PenjualController::class, 'orders'])->name('penjual.orders');
+    Route::get('penjual/orders/{order}', [PenjualController::class, 'show'])->name('penjual.orders.show');
     Route::get('/penjual/orders/{order}/confirm', [PenjualController::class, 'confirmOrder'])->name('penjual.confirmOrder');
 
 
