@@ -95,6 +95,11 @@ $total = $subtotal + $tax;
                     </div>
                 </div>
 
+                <!-- Tombol Cetak Invoice -->
+                <a href="{{ route('penjual.cetakInvoice', $order->id) }}" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded inline-block mt-4">
+                    Cetak Invoice
+                </a>
+
                 <!-- Tombol Kembali -->
                 <a href="{{ route('penjual.orders') }}" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-block mt-4">
                     Kembali

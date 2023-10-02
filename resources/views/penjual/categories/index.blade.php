@@ -16,6 +16,11 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg p-6">
                 <h3 class="text-lg font-semibold mb-4">{{ __('Categories') }}</h3>
 
+                <!-- Tombol Kembali -->
+                <a href="{{ url()->previous() }}" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded mb-4 inline-block">
+                    {{ __('Back') }}
+                </a>
+
                 <!-- Tombol Tambah Kategori -->
                 <a href="{{ route('penjual.categories.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                     {{ __('Add Category') }}

@@ -13,6 +13,7 @@
     </ul>
 </div>
 @endif
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
@@ -36,6 +37,9 @@
                         <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                             {{ __('Create Category') }}
                         </button>
+                        <a href="{{ url()->previous() }}" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded mb-4 inline-block">
+                            {{ __('Back') }}
+                        </a>
                     </div>
                 </form>
             </div>
