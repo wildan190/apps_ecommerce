@@ -9,13 +9,13 @@ class AdminCategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::all();
-        return view('admin.categories.index', compact('categories'));
+        $acategories = Category::all();
+        return view('admin.categories.index', compact('acategories'));
     }
 
     public function create()
     {
-        return view('admin.categories.create');
+        return view('admin.acategories.create');
     }
 
     public function store(Request $request)
