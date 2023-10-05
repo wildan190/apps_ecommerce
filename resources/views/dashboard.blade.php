@@ -62,10 +62,11 @@
                     <a href="{{ route('penjual.orders') }}" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded inline-block ml-4">
                         {{ __('View Orders') }}
                     </a>
-                    <!-- Tambahkan tombol-tombol lainnya sesuai dengan rute fitur yang tersedia -->
+                    <a href="{{ route('penjual.orders.riwayat') }}" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded inline-block ml-4">
+                        {{ __('Order History') }}
+                    </a>
+                    @endif
                 </div>
-                @endif
             </div>
         </div>
-    </div>
 </x-app-layout>

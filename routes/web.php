@@ -9,6 +9,7 @@ use App\Http\Controllers\Pembeli\PembeliOrderController;
 use App\Http\Controllers\Penjual\PenjualCategoryController;
 use App\Http\Controllers\Penjual\PenjualProductController;
 use App\Http\Controllers\Penjual\PenjualController;
+use App\Http\Controllers\Penjual\PenjualRiwayatOrderController;
 
 // Rute untuk Category dan Product Admin
 Route::middleware(['auth:sanctum', 'verified', 'role:Admin', 'admin.access'])->prefix('admin')->group(function () {
@@ -57,6 +58,7 @@ Route::middleware(['auth:sanctum', 'verified', 'role:Penjual'])->prefix('penjual
     Route::get('/penjual/orders/{order}/confirm', [PenjualController::class, 'confirmOrder'])->name('penjual.confirmOrder');
     Route::get('/cetak-invoice/{orderId}', [PenjualController::class, 'cetakInvoice'])->name('penjual.cetakInvoice');
     Route::post('products/store', [PenjualProductController::class, 'store'])->name('penjual.products.store');
+    Route::get('orders/riwayat', [PenjualRiwayatOrderController::class, 'index'])->name('penjual.orders.riwayat');
     Route::resource('products', PenjualProductController::class)->names([
         'create' => 'penjual.products.create',
     ]);
