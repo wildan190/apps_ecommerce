@@ -33,7 +33,7 @@
                 <!-- Tombol "Kembali" -->
                 <button onclick="history.back()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-block mt-4">
                     Kembali
-                </button </div>
+                </button>
             </div>
         </div>
 </x-app-layout>
