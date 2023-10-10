@@ -3,6 +3,12 @@
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Keranjang Belanja') }}
         </h2>
+        <div class="text-right">
+            <a href="{{ route('pembeli.index') }}" class="text-blue-500 hover:text-blue-700 mr-4">{{ __('Explore Products') }}</a>
+            <a href="{{ route('pembeli.viewCart') }}" class="text-blue-500 hover:text-blue-700 mr-4">{{ __('View Cart') }}</a>
+            <a href="{{ route('pembeli.orders.index') }}" class="text-blue-500 hover:text-blue-700">{{ __('My Orders') }}</a>
+            <!-- Tambahkan link untuk fitur lainnya jika diperlukan -->
+        </div>
     </x-slot>
 
     <div class="py-12">

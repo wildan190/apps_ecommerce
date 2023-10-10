@@ -65,6 +65,9 @@
                     <a href="{{ route('penjual.orders.riwayat') }}" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded inline-block ml-4">
                         {{ __('Order History') }}
                     </a>
+                    <a href="{{ route('penjual.dashboard') }}" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded inline-block ml-4">
+                        {{ __('Dashboard') }}
+                    </a>
                     @endif
                 </div>
             </div>

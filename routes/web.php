@@ -10,6 +10,7 @@ use App\Http\Controllers\Penjual\PenjualCategoryController;
 use App\Http\Controllers\Penjual\PenjualProductController;
 use App\Http\Controllers\Penjual\PenjualController;
 use App\Http\Controllers\Penjual\PenjualRiwayatOrderController;
+use App\Http\Controllers\Penjual\PenjualDashboardController;
 
 // Rute untuk Category dan Product Admin
 Route::middleware(['auth:sanctum', 'verified', 'role:Admin', 'admin.access'])->prefix('admin')->group(function () {
@@ -32,6 +33,7 @@ Route::middleware(['auth:sanctum', 'verified', 'role:Admin', 'admin.access'])->p
 
 // Rute-rute untuk Category dan Product Pembeli
 Route::middleware(['auth:sanctum', 'verified', 'role:Pembeli'])->prefix('pembeli')->group(function () {
+    Route::get('/product/detail/{id}', [PembeliController::class, 'showProductDetail'])->name('pembeli.product.detail');
     Route::get('/', [PembeliController::class, 'index'])->name('pembeli.index');
     Route::get('/cart', [PembeliController::class, 'viewCart'])->name('pembeli.viewCart');
     Route::get('/addToCart/{product}', [PembeliController::class, 'addToCart'])->name('pembeli.addToCart');
@@ -65,11 +67,11 @@ Route::middleware(['auth:sanctum', 'verified', 'role:Penjual'])->prefix('penjual
     Route::resource('categories', PenjualCategoryController::class)->names([
         'create' => 'penjual.categories.create',
     ]);
+    Route::get('dashboard', [PenjualDashboardController::class, 'index'])->name('penjual.dashboard');
+
 
     // Dashboard Penjual
-    Route::get('dashboard', function () {
-        return view('penjual.dashboard');
-    });
+    
 });
 
 // Rute Beranda
