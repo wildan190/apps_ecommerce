@@ -32,6 +32,7 @@ Route::middleware(['auth:sanctum', 'verified', 'role:Admin', 'admin.access'])->p
 
 // Rute-rute untuk Category dan Product Pembeli
 Route::middleware(['auth:sanctum', 'verified', 'role:Pembeli'])->prefix('pembeli')->group(function () {
+    Route::get('/product/detail/{id}', [PembeliController::class, 'showProductDetail'])->name('pembeli.product.detail');
     Route::get('/', [PembeliController::class, 'index'])->name('pembeli.index');
     Route::get('/cart', [PembeliController::class, 'viewCart'])->name('pembeli.viewCart');
     Route::get('/addToCart/{product}', [PembeliController::class, 'addToCart'])->name('pembeli.addToCart');

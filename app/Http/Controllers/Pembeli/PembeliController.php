@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Pembeli;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\Category;
 use App\Models\Order;
 use App\Models\OrderItem;
 use Illuminate\Http\Request;
@@ -15,6 +16,12 @@ class PembeliController extends Controller
     {
         $products = Product::all();
         return view('pembeli.index', compact('products'));
+    }
+
+    public function showProductDetail($id)
+    {
+        $product = Product::findOrFail($id);
+        return view('pembeli.detail', compact('product'));
     }
 
     public function addToCart(Request $request, Product $product)
