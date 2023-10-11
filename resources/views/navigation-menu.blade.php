@@ -102,7 +102,7 @@
                                 {{ __('Profile') }}
                             </x-dropdown-link>
 
-                            @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
+                            @if (Auth::user()->hasRole('Admin'))
                                 <x-dropdown-link href="{{ route('api-tokens.index') }}">
                                     {{ __('API Tokens') }}
                                 </x-dropdown-link>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+//use App\Models\Role;
 use Illuminate\Http\Request;
 
 class AdminUserManagementController extends Controller
@@ -17,7 +18,8 @@ class AdminUserManagementController extends Controller
 
     public function create(User $user)
     {
-        return view('admin.users.edit', compact('user'));
+        //$roles = Role::all(); // Retrieve all roles from the database
+        return view('admin.users.create', compact('user'));
     }
 
     public function edit(User $user)
@@ -39,4 +41,3 @@ class AdminUserManagementController extends Controller
         return redirect()->route('admin.users.index')->with('success', 'Pengguna berhasil dihapus.');
     }
 }
-
