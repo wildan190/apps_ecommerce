@@ -1,3 +1,6 @@
+/* resources/css/app.css */
+@import 'font-awesome/css/font-awesome.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

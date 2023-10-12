@@ -23,19 +23,20 @@
                     <!-- Daftar Produk -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
                         @foreach ($products as $product)
-                        <a href="{{ route('pembeli.product.detail', $product->id) }}" class="no-underline">
-                            <div class="bg-white dark:bg-gray-700 overflow-hidden shadow-lg sm:rounded-lg">
+                        <div class="bg-white dark:bg-gray-700 overflow-hidden shadow-lg sm:rounded-lg">
+                            <a href="{{ route('pembeli.product.detail', $product->id) }}" class="no-underline">
                                 <img src="{{ asset('storage/' . $product->foto_produk) }}" alt="{{ $product->nama_produk }}" class="w-full h-48 object-cover">
                                 <div class="p-4">
                                     <h3 class="text-lg font-semibold">{{ $product->nama_produk }}</h3>
                                     <p class="text-gray-600 dark:text-gray-300">Harga: {{ $product->harga_produk }}</p>
-                                    <a href="{{ route('pembeli.addToCart', $product) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2 block">Tambah ke Keranjang</a>
                                 </div>
+                            </a>
+                            <div class="p-4 text-center">
+                                <a href="{{ route('pembeli.addToCart', $product) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2 block">Tambah ke Keranjang</a>
                             </div>
-                        </a>
+                        </div>
                         @endforeach
                     </div>
-
                 </div>
                 <!-- End of Konten Pembeli -->
             </div>
