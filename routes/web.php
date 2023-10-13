@@ -11,6 +11,7 @@ use App\Http\Controllers\Penjual\PenjualProductController;
 use App\Http\Controllers\Penjual\PenjualController;
 use App\Http\Controllers\Penjual\PenjualRiwayatOrderController;
 use App\Http\Controllers\Penjual\PenjualDashboardController;
+use App\Http\Controllers\Penjual\SalesReportController;
 
 // Rute untuk Category dan Product Admin
 Route::middleware(['auth:sanctum', 'verified', 'role:Admin', 'admin.access'])->prefix('admin')->group(function () {
@@ -61,6 +62,14 @@ Route::middleware(['auth:sanctum', 'verified', 'role:Penjual'])->prefix('penjual
     Route::get('/cetak-invoice/{orderId}', [PenjualController::class, 'cetakInvoice'])->name('penjual.cetakInvoice');
     Route::post('products/store', [PenjualProductController::class, 'store'])->name('penjual.products.store');
     Route::get('orders/riwayat', [PenjualRiwayatOrderController::class, 'index'])->name('penjual.orders.riwayat');
+    Route::get('sales-report', [SalesReportController::class, 'showSalesReport'])->name('penjual.sales-report');
+    Route::get('sales-report-pdf', function () {
+        $salesData = \App\models\OrderItem::all(); // Gantilah ini dengan query yang sesuai
+
+        $pdf = PDF::loadView('penjual.sales-report-pdf', compact('salesData'));
+
+        return $pdf->stream('penjual.sales-report.pdf');
+    })->name('sales-report.pdf');
     Route::resource('products', PenjualProductController::class)->names([
         'create' => 'penjual.products.create',
     ]);
@@ -71,7 +80,7 @@ Route::middleware(['auth:sanctum', 'verified', 'role:Penjual'])->prefix('penjual
 
 
     // Dashboard Penjual
-    
+
 });
 
 // Rute Beranda

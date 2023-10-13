@@ -16,35 +16,36 @@
                 <p>{{ __('Admin-specific content goes here.') }}</p>
 
                 <!-- Tombol-tombol akses fitur Admin -->
-                <div class="mt-6">
-                    <a href="{{ route('categories.index') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block">
+                <div class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <a href="{{ route('categories.index') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded">
                         {{ __('Manage Categories') }}
                     </a>
-                    <a href="{{ route('products.index') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded inline-block ml-4">
+                    <a href="{{ route('products.index') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-4 px-6 rounded">
                         {{ __('Manage Products') }}
                     </a>
-                    <a href="{{ route('users.index') }}" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded inline-block ml-4">
+                    <a href="{{ route('users.index') }}" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-4 px-6 rounded">
                         {{ __('Manage Users') }}
                     </a>
                     <!-- Tambahkan tombol-tombol lainnya sesuai dengan rute fitur yang tersedia -->
                 </div>
+
                 @elseif (Auth::user()->hasRole('Pembeli'))
                 <!-- Tampilan untuk Pembeli -->
                 <p>{{ __('You are logged in as a Buyer.') }}</p>
                 <p>{{ __('Buyer-specific content goes here.') }}</p>
 
-                <div class="mt-6">
-                    <a href="{{ route('pembeli.viewCart') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block">
+                <div class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <a href="{{ route('pembeli.viewCart') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded">
                         <i class="fas fa-shopping-cart mr-2"></i>{{ __('View Cart') }}
                     </a>
-                    <a href="{{ route('pembeli.orders.index') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded inline-block ml-4">
+                    <a href="{{ route('pembeli.orders.index') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-4 px-6 rounded">
                         <i class="fas fa-clipboard-list mr-2"></i>{{ __('View Orders') }}
                     </a>
-                    <a href="{{ route('pembeli.index') }}" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded inline-block">
-                        <i class="fas fa-search mr-2"></i>{{ __('Explore Products') }}
-                    </a>
+                    <a href="{{ route('pembeli.index') }}" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-4 px-6 rounded">
+                        <i class="fas fa-search mr-2"></i>{{ __('Explore Products') }} </a>
                     <!-- Tambahkan tombol-tombol lainnya sesuai dengan rute fitur yang tersedia -->
                 </div>
+
 
                 @elseif (Auth::user()->hasRole('Penjual'))
                 <!-- Tampilan untuk Penjual -->
@@ -52,24 +53,28 @@
                 <p>{{ __('Seller-specific content goes here.') }}</p>
 
                 <!-- Tombol-tombol akses fitur Penjual -->
-                <div class="mt-6">
-                    <a href="{{ route('products.index') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block">
+                <div class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <a href="{{ route('products.index') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded">
                         {{ __('Manage Products') }}
                     </a>
-                    <a href="{{ route('categories.index') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded inline-block ml-4">
+                    <a href="{{ route('categories.index') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-4 px-6 rounded">
                         {{ __('Manage Categories') }}
                     </a>
-                    <a href="{{ route('penjual.orders') }}" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded inline-block ml-4">
+                    <a href="{{ route('penjual.orders') }}" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-4 px-6 rounded">
                         {{ __('View Orders') }}
                     </a>
-                    <a href="{{ route('penjual.orders.riwayat') }}" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded inline-block ml-4">
+                    <a href="{{ route('penjual.orders.riwayat') }}" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-4 px-6 rounded">
                         {{ __('Order History') }}
                     </a>
-                    <a href="{{ route('penjual.dashboard') }}" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded inline-block ml-4">
+                    <a href="{{ route('penjual.dashboard') }}" class="bg-red-500 hover:bg-red-700 text-white font-bold py-4 px-6 rounded">
                         {{ __('Dashboard') }}
                     </a>
-                    @endif
+                    <a href="{{ route('penjual.sales-report') }}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-4 px-6 rounded">
+                        {{ __('Laporan Penjualan') }}
+                    </a>
                 </div>
+                @endif
             </div>
         </div>
+    </div>
 </x-app-layout>
