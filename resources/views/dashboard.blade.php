@@ -17,14 +17,15 @@
 
                 <!-- Tombol-tombol akses fitur Admin -->
                 <div class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <a href="{{ route('categories.index') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded">
-                        {{ __('Manage Categories') }}
-                    </a>
-                    <a href="{{ route('products.index') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-4 px-6 rounded">
-                        {{ __('Manage Products') }}
-                    </a>
+                    
                     <a href="{{ route('users.index') }}" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-4 px-6 rounded">
                         {{ __('Manage Users') }}
+                    </a>
+                    <a href="{{ route('admin.products.index') }}" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-4 px-6 rounded">
+                        {{ __('Products') }}
+                    </a>
+                    <a href="{{ route('admin.orders.index') }}" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-4 px-6 rounded">
+                        {{ __('Riwayat') }}
                     </a>
                     <!-- Tambahkan tombol-tombol lainnya sesuai dengan rute fitur yang tersedia -->
                 </div>

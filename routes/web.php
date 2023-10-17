@@ -1,9 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\AdminCategoryController;
-use App\Http\Controllers\Admin\AdminProductController;
+//use App\Http\Controllers\Admin\AdminCategoryController;
+//use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\AdminUserManagementController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\AdminOrderController;
 use App\Http\Controllers\Pembeli\PembeliController;
 use App\Http\Controllers\Pembeli\PembeliOrderController;
 use App\Http\Controllers\Penjual\PenjualCategoryController;
@@ -17,14 +19,31 @@ use App\Http\Controllers\Penjual\SalesReportController;
 Route::middleware(['auth:sanctum', 'verified', 'role:Admin', 'admin.access'])->prefix('admin')->group(function () {
     // Rute untuk manajemen pengguna oleh Admin
     Route::resource('users', AdminUserManagementController::class)->except(['show']);
+    Route::get('/products', [ProductController::class, 'index'])->name('admin.products.index');
+    Route::delete('/admin/products/{product}', [ProductController::class, 'destroy'])
+    ->name('admin.products.destroy');
+    Route::get('/orders', [AdminOrderController::class, 'index'])
+    ->name('admin.orders.index');
+    Route::delete('/orders/{order}', [AdminOrderController::class, 'destroy'])
+    ->name('admin.orders.destroy');
+
+    /*Route::post('/admin/orders/filter', [AdminOrderController::class, 'filter'])
+    ->name('admin.orders.filter');*/
+    Route::get('/orders/{order}', [AdminOrderController::class, 'show'])
+    ->name('admin.orders.show');
+
+
+
+
+
 
     // Rute untuk Category dan Product
-    Route::resource('acategories', AdminCategoryController::class)->names([
+    /*Route::resource('acategories', AdminCategoryController::class)->names([
         'create' => 'admin.acategories.create',
     ]);
     Route::resource('aproducts', AdminProductController::class)->names([
         'create' => 'admin.products.create',
-    ]);
+    ]);*/
 
     // Dashboard Admin
     Route::get('dashboard', function () {
